@@ -58,29 +58,29 @@
                      android:textColor="?attr/textcolour"
                      android:textSize="26sp"
                      android:textStyle="bold" />
-                <TextView
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="horizontal">
+
+                     <ImageView
+                          android:layout_width="24dp"
+                         android:layout_height="24dp"
+                         android:layout_marginStart="14dp"
+                         android:src="@drawable/location"
+                         />
+
+                     <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/poppins"
+                       android:fontFamily="@font/poppins"
+                         android:layout_marginStart="@dimen/padding_10"
                     android:textColor="?attr/textcolour"
                     android:text="Choose your top genres from below list"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/popularvikewall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/colorAccent"
-                    android:text="View All"
-                    android:textStyle="bold"
-                    android:textSize="10sp" />
+                 </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -115,7 +115,7 @@
                      android:background="@drawable/background_circle"
                      android:padding="12dp"
                      android:src="@drawable/boy"
-                     app:tint="?attr/textcolour" />
+                     app:tint="?attr/iconcolour" />
 
                  <TextView
                      android:layout_width="wrap_content"
@@ -149,7 +149,7 @@
                      android:background="@drawable/background_circle"
                      android:padding="12dp"
                      android:src="@drawable/gerils"
-                     app:tint="?attr/textcolour" />
+                     app:tint="?attr/iconcolour" />
 
                  <TextView
                      android:layout_width="wrap_content"
@@ -183,7 +183,7 @@
                      android:background="@drawable/background_circle"
                      android:padding="12dp"
                      android:src="@drawable/stayhome"
-                     app:tint="?attr/textcolour" />
+                     app:tint="?attr/iconcolour" />
 
                  <TextView
                      android:layout_width="wrap_content"
@@ -232,7 +232,7 @@
                      android:background="@drawable/background_circle"
                      android:padding="12dp"
                      android:src="@drawable/low"
-                     app:tint="?attr/textcolour" />
+                     app:tint="?attr/iconcolour" />
 
                  <TextView
                      android:layout_width="wrap_content"
@@ -266,7 +266,7 @@
                      android:background="@drawable/background_circle"
                      android:padding="12dp"
                      android:src="@drawable/medium"
-                     app:tint="?attr/textcolour" />
+                     app:tint="?attr/iconcolour" />
 
                  <TextView
                      android:layout_width="wrap_content"
@@ -301,7 +301,7 @@
                      android:background="@drawable/background_circle"
                      android:padding="12dp"
                      android:src="@drawable/premium"
-                     app:tint="?attr/textcolour" />
+                     app:tint="?attr/iconcolour" />
 
                  <TextView
                      android:layout_width="wrap_content"
