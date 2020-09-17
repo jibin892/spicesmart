@@ -3,13 +3,10 @@ package jibin.ck.hostelapp_user.Home;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -18,24 +15,23 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
+import android.view.animation.BounceInterpolator;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SwitchCompat;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -46,8 +42,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,14 +55,10 @@ import java.util.Locale;
 
 import jibin.ck.hostelapp_user.Adapter.Nearest_Adapter;
 import jibin.ck.hostelapp_user.Adapter.Popular_Adapter;
-import jibin.ck.hostelapp_user.Aother.SaveLocationSatate;
-import jibin.ck.hostelapp_user.Login.Login_page;
 import jibin.ck.hostelapp_user.R;
-import jibin.ck.hostelapp_user.Settings.Settings_home;
-import jibin.ck.hostelapp_user.Splash;
 import jibin.ck.hostelapp_user.View_All.Viewall;
-import jibin.ck.hostelapp_user.Viewholder.Nearest_viewholder;
 import jibin.ck.hostelapp_user.Viewholder.Popular_viewholder;
+import jibin.ck.hostelapp_user.Viewholder.Nearest_viewholder;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.content.ContentValues.TAG;
@@ -85,11 +75,12 @@ public class Fragment_Home extends Fragment {
     RecyclerView mRecyclerView,nearest;
     FirebaseDatabase mFirebaseDatabase,mFirebaseDatabase1;
     DatabaseReference mRef,mRef1;
-TextView popularviewall,nearestviewall;
-LinearLayout locationon,current_location_layout;
+TextView popularviewall,nearestviewall,locationtext,rangeammount;
+LinearLayout locationon,boyshostel,gerilshostel,homestay,lowbudget,mediumbudget,premium;
+CardView locationfindinglayout;
     ShimmerFrameLayout popular_shimer,nearest_shimer;
     Location location;
-    Button locationonbtn;
+    Button locationonbtn,rangebutton;
     String address, city, state, country, postalCode, knownName;
     public Fragment_Home() {
         // Required empty public constructor
@@ -104,8 +95,140 @@ LinearLayout locationon,current_location_layout;
         mRecyclerView =  view.findViewById(R.id.popular);
         locationon=view.findViewById(R.id.locationon);
         locationonbtn=view.findViewById(R.id.locationonbtn);
+        rangeammount=view.findViewById(R.id.rangeammount);
+        rangebutton=view.findViewById(R.id.rangebutton);
+        rangebutton.setVisibility(View.GONE);
+        boyshostel=view.findViewById(R.id.boyshostel);
+        gerilshostel=view.findViewById(R.id.gerilshostel);
+        homestay=view.findViewById(R.id.homestay);
+        lowbudget=view.findViewById(R.id.lowbudget);
+        mediumbudget=view.findViewById(R.id.mediumbudget);
+        premium=view.findViewById(R.id.premium);
 
-          new Handler().postDelayed(new Runnable() {
+
+        boyshostel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Viewall.class);
+                i.putExtra("key","boyshostel");
+                i.putExtra("child","mdel");
+
+                startActivity(i);
+            }
+        });
+        gerilshostel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Viewall.class);
+                i.putExtra("key","gerilshostel");
+                i.putExtra("child","mdel");
+
+                startActivity(i);
+            }
+        });
+        homestay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Viewall.class);
+                i.putExtra("key","homestay");
+                i.putExtra("child","mdel");
+
+                startActivity(i);
+            }
+        });
+        lowbudget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Viewall.class);
+                i.putExtra("key","lowbudget");
+                i.putExtra("child","budget");
+
+                startActivity(i);
+            }
+        });
+
+        mediumbudget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Viewall.class);
+                i.putExtra("key","lowbudget");
+                i.putExtra("child","budget");
+
+                startActivity(i);
+            }
+        });
+        premium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Viewall.class);
+                i.putExtra("key","premium");
+                i.putExtra("child","budget");
+
+                startActivity(i);
+            }
+        });
+        rangebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Viewall.class);
+                i.putExtra("key",rangeammount.getText().toString());
+                i.putExtra("child","ammount");
+
+                startActivity(i);
+            }
+        });
+
+        locationfindinglayout=view.findViewById(R.id.locationfindinglayout);
+        locationtext=view.findViewById(R.id.locationtext);
+        locationtext.startAnimation((Animation)AnimationUtils.loadAnimation(getActivity(),R.anim.translate));
+        SeekBar seekBar = view.findViewById(R.id.seek1);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+              //  Toast.makeText(getActivity(), "Value is : " + i, Toast.LENGTH_SHORT).show();
+                rangeammount.setText( String.valueOf(i) );
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        rangeammount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                //write code here, what it should do before text is entered
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 1) {
+                    rangebutton.setVisibility(View.VISIBLE);
+                    rangebutton.animate()
+                            .setInterpolator(new BounceInterpolator())
+                            .setDuration(2000)
+                            .scaleXBy(0)
+                            .scaleX(1)
+                            .scaleYBy(0)
+                            .scaleY(1);
+                    rangebutton.setText("Continu With"+ System.getProperty ("line.separator")+rangeammount.getText().toString());
+                } else if (charSequence.length() < 1) {
+                    rangebutton.animate().setInterpolator(new BounceInterpolator()).scaleXBy(1).scaleX(0).scaleYBy(1).scaleY(0);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //write code here, what it should do after text is entered,
+                //that is validations.
+            }
+        });
+        new Handler().postDelayed(new Runnable() {
 
 
             @Override
@@ -115,11 +238,17 @@ LinearLayout locationon,current_location_layout;
                 if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
                     //  buildAlertMessageNoGps();
                     mRecyclerView.setVisibility(View.GONE);
+                    popular_shimer.setVisibility(View.GONE);
+                    locationfindinglayout.setVisibility(View.GONE);
+                    locationon.setVisibility(View.VISIBLE);
+
+
                 }
                 else{
 
                     locationon.setVisibility(View.GONE);
                     mRecyclerView.setVisibility(View.VISIBLE);
+                    locationfindinglayout.setVisibility(View.VISIBLE);
 
 
                 }
@@ -262,16 +391,33 @@ LinearLayout locationon,current_location_layout;
     public void onStart() {
         super.onStart();
         loads();
+        final LocationManager manager = (LocationManager)getActivity(). getSystemService( Context.LOCATION_SERVICE );
 
+        if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+            //  buildAlertMessageNoGps();
+            mRecyclerView.setVisibility(View.GONE);
+            popular_shimer.setVisibility(View.GONE);
+            locationon.setVisibility(View.VISIBLE);
+
+            locationfindinglayout.setVisibility(View.GONE);
+        }
+        else{
+
+            locationon.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+            locationfindinglayout.setVisibility(View.VISIBLE);
+
+
+        }
         Query firebaseSearchQuery = mRef.orderByChild("postalCode").equalTo("685552");
-        FirebaseRecyclerAdapter<Popular_Adapter, Popular_viewholder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Popular_Adapter, Popular_viewholder>(
+        FirebaseRecyclerAdapter<Popular_Adapter, Nearest_viewholder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<Popular_Adapter, Nearest_viewholder>(
                          Popular_Adapter.class,
                         R.layout.popular_view,
-                        Popular_viewholder.class,
+                        Nearest_viewholder.class,
                         firebaseSearchQuery) {
                     @Override
-                    protected void populateViewHolder(Popular_viewholder viewHolder, Popular_Adapter model, int position) {
+                    protected void populateViewHolder(Nearest_viewholder viewHolder, Popular_Adapter model, int position) {
                         viewHolder.setDetails(getActivity(), model.getProductimg());
 
 
@@ -280,9 +426,9 @@ LinearLayout locationon,current_location_layout;
                     }
 
                     @Override
-                    public Popular_viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
+                    public Nearest_viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-                        Popular_viewholder viewHolder = super.onCreateViewHolder(parent, viewType);
+                        Nearest_viewholder viewHolder = super.onCreateViewHolder(parent, viewType);
 
 
 
@@ -326,14 +472,14 @@ LinearLayout locationon,current_location_layout;
     private void loads() {
 
 
-        FirebaseRecyclerAdapter<Nearest_Adapter, Nearest_viewholder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Nearest_Adapter, Nearest_viewholder>(
+        FirebaseRecyclerAdapter<Nearest_Adapter, Popular_viewholder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<Nearest_Adapter, Popular_viewholder>(
                         Nearest_Adapter.class,
                         R.layout.nearest_view,
-                        Nearest_viewholder.class,
+                        Popular_viewholder.class,
                         mRef1) {
                     @Override
-                    protected void populateViewHolder(Nearest_viewholder viewHolder, Nearest_Adapter model, int position) {
+                    protected void populateViewHolder(Popular_viewholder viewHolder, Nearest_Adapter model, int position) {
                         viewHolder.setDetails(getActivity(), model.getProductimg());
 
 
@@ -342,9 +488,9 @@ LinearLayout locationon,current_location_layout;
                     }
 
                     @Override
-                    public Nearest_viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
+                    public Popular_viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-                        Nearest_viewholder viewHolder = super.onCreateViewHolder(parent, viewType);
+                        Popular_viewholder viewHolder = super.onCreateViewHolder(parent, viewType);
 
 
 
@@ -458,7 +604,7 @@ LinearLayout locationon,current_location_layout;
         postalCode = addresses.get(0).getPostalCode();
         knownName = addresses.get(0).getFeatureName();
 
-
+        locationtext.setText(address+city+state+postalCode);
 
 
 

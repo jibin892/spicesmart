@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +17,6 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -41,10 +41,10 @@ public class Popular_viewholder extends RecyclerView.ViewHolder {
     @SuppressLint("CheckResult")
     public void setDetails(final Context ctx, final String img ){
         //Views
-        ImageView mystatusimage = v.findViewById(R.id.popular_hostel_img);
+        ImageView mystatusimage = v.findViewById(R.id.nearest_hostel_img);
 
-        final LottieAnimationView progressBar=v.findViewById(R.id.progressbars);
-        progressBar.setVisibility(View.VISIBLE);
+        final LottieAnimationView progressBar=v.findViewById(R.id.progressbar);
+      progressBar.setVisibility(View.VISIBLE);
         Glide.with(ctx)
                 .load(img)
 //
@@ -52,7 +52,7 @@ public class Popular_viewholder extends RecyclerView.ViewHolder {
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        progressBar.setVisibility(View.GONE);
+                         progressBar.setVisibility(View.GONE);
                         return false;
                     }
 
@@ -64,15 +64,17 @@ public class Popular_viewholder extends RecyclerView.ViewHolder {
                 })
                 .into(mystatusimage);
 
-mystatusimage.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
+        mystatusimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
 
-        Intent a=new Intent(ctx, View_hostel.class);
-        ctx.startActivity(a);
-    }
-});
+                Intent a=new Intent(ctx, View_hostel.class);
+                ctx.startActivity(a);
+            }
+        });
+
+
 
 
     }

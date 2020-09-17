@@ -24,6 +24,7 @@
 
         <item name="buttoncolour">#05AFF2</item>
         <item name="iconcolour">#A6A6A6</item>
+        <item name="cardview">#F2F2F2</item>
 
         <item name="bottomNavIconColor">#5F6368</item>
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
@@ -46,6 +47,7 @@
         <item name="headerDivider">@color/light100</item>
         <item name="cr">#585859</item>
         <item name="iconcolour">#A6A6A6</item>
+        <item name="cardview">#252526</item>
 
         <item name="toolbarTextColor">#80868B</item>
         <item name="bottomNavIconColor">#BDC1C6</item>

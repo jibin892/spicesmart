@@ -5,13 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,7 +22,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +33,6 @@ import jibin.ck.hostelapp_user.Location.Tools;
 import jibin.ck.hostelapp_user.R;
 import jibin.ck.hostelapp_user.Settings.SaveTheamSatate;
 import jibin.ck.hostelapp_user.Viewholder.Hostelimg_viewholder;
-import jibin.ck.hostelapp_user.Viewholder.Popular_viewholder;
 import jibin.ck.hostelapp_user.Viewholder.Review_viewholder;
 
 public class View_hostel extends AppCompatActivity {

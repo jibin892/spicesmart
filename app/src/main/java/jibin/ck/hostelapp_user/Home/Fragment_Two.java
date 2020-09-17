@@ -8,9 +8,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -28,10 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-import jibin.ck.hostelapp_user.Adapter.Popular_Adapter;
 import jibin.ck.hostelapp_user.Adapter.Search_Adapter;
 import jibin.ck.hostelapp_user.R;
-import jibin.ck.hostelapp_user.Viewholder.Popular_viewholder;
 import jibin.ck.hostelapp_user.Viewholder.Search_viewholder;
 
 
@@ -74,8 +69,7 @@ LottieAnimationView sechnodata;
 
 
         //RecyclerView
-        findnearbyme  =  view.findViewById(R.id.findnearbyme);
-//        Animation     animation = AnimationUtils.loadAnimation(getActivity(), R.anim.layout_animation_fall_down);
+ //        Animation     animation = AnimationUtils.loadAnimation(getActivity(), R.anim.layout_animation_fall_down);
 
 
       //  findnearbyme.startAnimation(animation);

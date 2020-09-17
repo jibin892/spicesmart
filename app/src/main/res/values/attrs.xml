@@ -16,6 +16,7 @@
         <attr name="headerDivider" format="color"/>
         <attr name="cr" format="color"/>
         <attr name="iconcolour" format="color"/>
+        <attr name="cardview" format="color"/>
 
         <attr name="black" format="color"/>
         <attr name="white1" format="color"/>

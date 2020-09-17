@@ -12,8 +12,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -27,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import jibin.ck.hostelapp_user.Adapter.Popular_Adapter;
 import jibin.ck.hostelapp_user.R;
 import jibin.ck.hostelapp_user.Settings.SaveTheamSatate;
-import jibin.ck.hostelapp_user.Viewholder.Popular_viewholder;
+import jibin.ck.hostelapp_user.Viewholder.Nearest_viewholder;
 
 public class Viewall extends AppCompatActivity {
     SaveTheamSatate saveTheamSatate;
@@ -42,6 +40,7 @@ Intent key;
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
         saveTheamSatate = new SaveTheamSatate(this);
         if(saveTheamSatate.looadNightModeState()){
             setTheme(R.style.NightMode);
@@ -71,14 +70,14 @@ key=getIntent();
         super.onStart();
 
         Query firebaseSearchQuery = mRef.orderByChild(key.getStringExtra("child")).equalTo(key.getStringExtra("key"));
-        FirebaseRecyclerAdapter<Popular_Adapter, Popular_viewholder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Popular_Adapter, Popular_viewholder>(
+        FirebaseRecyclerAdapter<Popular_Adapter, Nearest_viewholder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<Popular_Adapter, Nearest_viewholder>(
                         Popular_Adapter.class,
-                        R.layout.popular_view,
-                        Popular_viewholder.class,
+                        R.layout.viewall,
+                        Nearest_viewholder.class,
                         firebaseSearchQuery) {
                     @Override
-                    protected void populateViewHolder(Popular_viewholder viewHolder, Popular_Adapter model, int position) {
+                    protected void populateViewHolder(Nearest_viewholder viewHolder, Popular_Adapter model, int position) {
                         viewHolder.setDetails(getApplicationContext(), model.getProductimg());
 
 
@@ -87,9 +86,9 @@ key=getIntent();
                     }
 
                     @Override
-                    public Popular_viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
+                    public Nearest_viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-                        Popular_viewholder viewHolder = super.onCreateViewHolder(parent, viewType);
+                        Nearest_viewholder viewHolder = super.onCreateViewHolder(parent, viewType);
 
 
 
