@@ -23,12 +23,69 @@
 
      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="?attr/backgroundColorApp"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:paddingBottom="6dp">
+
+
+
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+             android:background="@color/blueTransparentDark"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+
+             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="24dp"
+                     android:layout_marginTop="24dp"
+                     android:layout_marginEnd="24dp"
+                     android:fontFamily="@font/poppins_bold"
+                     android:text="Popular"
+                     android:textColor="?attr/textcolour"
+                     android:textSize="26sp"
+                     android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="?attr/textcolour"
+                    android:text="Choose your top genres from below list"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/popularvikewall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/colorAccent"
+                    android:text="View All"
+                    android:textStyle="bold"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
@@ -138,6 +195,124 @@
                      android:layout_marginBottom="4dp"
                      android:fontFamily="@font/poppins_semibold"
                      android:text="Home Stay"
+                     android:textColor="?attr/textcolour"
+                     android:textSize="14sp" />
+
+             </LinearLayout>
+
+
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:layout_marginTop="12dp"
+             android:layout_marginBottom="2dp"
+             android:gravity="center_vertical"
+             android:orientation="horizontal"
+             android:padding="12dp"
+             android:weightSum="3">
+
+             <LinearLayout
+                 android:id="@+id/sendAmountGridA"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_weight="1"
+                 android:background="?attr/backgroundColorApp"
+                 android:gravity="center"
+                 android:orientation="vertical"
+                 android:padding="8dp">
+
+                 <ImageView
+                     android:layout_width="59dp"
+                     android:layout_height="58dp"
+                     android:layout_margin="4dp"
+                     android:background="@drawable/background_circle"
+                     android:padding="12dp"
+                     android:src="@drawable/low"
+                     app:tint="?attr/textcolour" />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_gravity="center"
+                     android:layout_marginStart="4dp"
+                     android:layout_marginTop="8dp"
+                     android:layout_marginEnd="4dp"
+                     android:layout_marginBottom="4dp"
+                     android:fontFamily="@font/poppins_semibold"
+                     android:text="Low Budget"
+                     android:textColor="?attr/textcolour"
+                     android:textSize="14sp" />
+
+             </LinearLayout>
+
+             <LinearLayout
+                 android:id="@+id/receiveAmAountGrid"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_weight="1"
+                 android:gravity="center"
+                 android:orientation="vertical"
+                 android:padding="8dp">
+
+                 <ImageView
+                     android:layout_width="59dp"
+                     android:layout_height="58dp"
+                     android:layout_margin="4dp"
+                     android:background="@drawable/background_circle"
+                     android:padding="12dp"
+                     android:src="@drawable/medium"
+                     app:tint="?attr/textcolour" />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_gravity="center"
+                     android:layout_marginStart="4dp"
+                     android:layout_marginTop="8dp"
+                     android:layout_marginEnd="4dp"
+                     android:layout_marginBottom="4dp"
+                     android:fontFamily="@font/poppins_semibold"
+                     android:text="Medium Budget"
+                     android:singleLine="true"
+                     android:textColor="?attr/textcolour"
+                     android:textSize="14sp" />
+
+             </LinearLayout>
+
+             <LinearLayout
+                 android:id="@+id/walleAtGrid"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_weight="1"
+                 android:gravity="center"
+                 android:orientation="vertical"
+                 android:padding="8dp">
+
+                 <ImageView
+                     android:layout_width="59dp"
+                     android:layout_height="58dp"
+                     android:layout_margin="4dp"
+                     android:background="@drawable/background_circle"
+                     android:padding="12dp"
+                     android:src="@drawable/premium"
+                     app:tint="?attr/textcolour" />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_gravity="center"
+                     android:layout_marginStart="4dp"
+                     android:layout_marginTop="8dp"
+                     android:layout_marginEnd="4dp"
+                     android:layout_marginBottom="4dp"
+                     android:fontFamily="@font/poppins_semibold"
+                     android:text="Premium"
                      android:textColor="?attr/textcolour"
                      android:textSize="14sp" />
 
