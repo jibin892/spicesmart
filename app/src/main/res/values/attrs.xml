@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ds">
+        <attr name="backgroundColorApp" format="color"/>
+        <attr name="toolbarColor" format="color"/>
+        <attr name="toolbarTextColor" format="color"/>
+        <attr name="bottomNavIconColor" format="color"/>
+        <attr name="lightGray" format="color"/>
+        <attr name="backgroundColorApp1" format="color"/>
+        <attr name="toolbarColor1" format="color"/>
+        <attr name="colorControlNormal" format="color"/>
+        <attr name="white" format="color"/>
+        <attr name="textcolour" format="color"/>
+        <attr name="buttoncolour" format="color"/>
+        <attr name="icons" format="color"/>
+        <attr name="headerDivider" format="color"/>
+
+        <attr name="black" format="color"/>
+        <attr name="white1" format="color"/>
+        <attr name="img" format="color"/>
+
+    </declare-styleable>
+</resources>

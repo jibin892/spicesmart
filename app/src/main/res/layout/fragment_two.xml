@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/swiping"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="schemas.android.com/tools"
+    android:background="?attr/backgroundColorApp"
+    android:fillViewport="true"
+     tools:ignore="NamespaceTypo">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColorApp">
+     <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:id="@+id/nsv3"
+         android:background="?attr/backgroundColorApp"
+        android:fillViewport="true"
+     >
+    <LinearLayout
+        android:id="@+id/lyt_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:layout_margin="@dimen/spacing_mlarge"
+            android:clipToPadding="false"
+            app:cardBackgroundColor="?attr/backgroundColorApp"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="0dp"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/spacing_xmlarge"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:padding="@dimen/spacing_middle"
+                    android:background="?attr/backgroundColorApp"
+                    app:srcCompat="@drawable/search"
+                    app:tint="?attr/textcolour" />
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                     android:background="?attr/backgroundColorApp"
+                    android:hint="Type Your City"
+                     android:maxLines="1"
+                    android:singleLine="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/grey_80"/>
+
+
+
+             </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/sechnodata"
+                android:layout_width="277dp"
+                android:layout_height="196dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="54dp"
+                android:layout_marginBottom="25dp"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="s.json"
+                app:lottie_loop="true" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:scrollingCache="true"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColorApp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:paddingBottom="6dp">
+
+
+        <LinearLayout
+            android:id="@+id/findnearbyme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/backgroundColorApp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingBottom="6dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:background="@drawable/topcorner"
+                    android:backgroundTint="@color/red"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                       android:text="Find near by me"
+                    android:textAlignment="center"
+                    android:layout_marginTop="60dp"
+                    android:textColor="@color/black"
+                    android:textSize="35dp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/backgroundColorApp"
+            android:orientation="vertical">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="59dp"
+        android:layout_height="58dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/background_circle"
+        android:padding="12dp"
+        android:src="@drawable/boy"
+        app:tint="?attr/textcolour" />
+
+    <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="24dp"
+
+                android:fontFamily="@font/poppins_bold"
+                android:text="Popular"
+                android:textColor="?attr/textcolour"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="?attr/textcolour"
+                    android:text="Choose your top genres from below list"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/colorAccent"
+                    android:text="View All"
+                    android:textStyle="bold"
+                    android:textSize="10sp" />
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="206dp">
+
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/popular_shimer"
+                    android:layout_width="match_parent"
+                    android:layout_height="206dp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:background="?attr/backgroundColorApp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    shimmer:duration="800">
+
+                    <!-- Adding 3 rows of placeholders -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <include layout="@layout/shimer" />
+                        <include layout="@layout/shimer" />
+                        <include layout="@layout/shimer" />
+
+                        <!--                                <include layout="@layout/shimer" />-->
+
+
+
+
+
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="206dp"
+                    android:scrollingCache="true" />
+
+
+
+            </RelativeLayout>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/current_location_layout"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="59dp"
+                        android:layout_height="58dp"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/background_circle"
+                        android:padding="12dp"
+                        android:src="@drawable/boy"
+                        app:tint="?attr/textcolour" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="24dp"
+
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Popular"
+                        android:textColor="?attr/textcolour"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="?attr/textcolour"
+                        android:text="Choose your top genres from below list"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textColor="@color/colorAccent"
+                        android:text="View All"
+                        android:textStyle="bold"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/nearest_shimer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:background="?attr/backgroundColorApp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        shimmer:duration="800">
+
+                        <!-- Adding 3 rows of placeholders -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/shimer_nearest" />
+                            <include layout="@layout/shimer_nearest" />
+                            <include layout="@layout/shimer_nearest" />
+
+                            <!--                                <include layout="@layout/shimer" />-->
+
+
+
+
+
+
+                        </LinearLayout>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/nearest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollingCache="true" />
+
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="122dp"
+                        android:layout_height="101dp"
+
+                        app:lottie_autoPlay="true"
+                        app:lottie_fileName="find.json"
+                        app:lottie_loop="true" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Find Budget Free Hostel"
+                        android:textColor="?attr/textcolour"
+                        android:textSize="14sp" />
+
+
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/dobel_arrows"
+                        app:tint="?attr/textcolour" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

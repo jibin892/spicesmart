@@ -1,0 +1,64 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!-- Day/light mode style -->
+    <style name="DayMode" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#FFFFFF</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+        <item name="backgroundColorApp">#FFFFFF</item>
+        <item name="toolbarColor">#FFFFFF</item>
+        <item name="toolbarTextColor">#80868B</item>
+        <item name="textcolour">#000000</item>
+        <item name="icons">#000000</item>
+        <item name="headerDivider">@color/grey_80</item>
+
+        <item name="buttoncolour">#05AFF2</item>
+
+        <item name="bottomNavIconColor">#5F6368</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <!-- night/dark mode style -->
+    <style name="NightMode" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#202124</item>
+        <item name="colorPrimaryDark">#202124</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+        <item name="backgroundColorApp">#202124</item>
+        <item name="toolbarColor">#313235</item>
+        <item name="textcolour">#FFFFFF</item>
+        <item name="buttoncolour">#0390FB</item>
+        <item name="icons">#FFFFFF</item>
+        <item name="headerDivider">@color/light100</item>
+
+        <item name="toolbarTextColor">#80868B</item>
+        <item name="bottomNavIconColor">#BDC1C6</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+    <style name="EditTextBlue" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/fontColor</item>
+        <item name="colorControlActivated">@color/materialBlue900</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="CustomTabFont" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="Yellow.AppCompatRatingBar" parent="Base.Widget.AppCompat.RatingBar.Indicator">
+        <item name="colorControlNormal">@color/grey_60</item>
+        <item name="colorControlActivated">@color/rallyYellow</item>
+    </style>
+</resources>

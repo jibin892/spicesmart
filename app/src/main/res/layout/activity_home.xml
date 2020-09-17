@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColorApp"
+    tools:context=".Home.Home"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?attr/backgroundColorApp"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_scrollFlags="scroll|enterAlways"
+      >
+
+        <ImageView
+            android:id="@+id/navimage"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="?attr/icons"
+            android:src="@drawable/menu"
+            app:tint="?attr/icons" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileimage"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/user" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:animateLayoutChanges="true"
+        android:background="?attr/backgroundColorApp"
+        app:tabBackground="@drawable/tab_selector_new"
+        app:tabIconTint="?attr/textcolour"
+        app:tabIndicatorColor="@android:color/transparent"
+        app:tabInlineLabel="true"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextAppearance="@style/CustomTabFont">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:icon="@drawable/home" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:icon="@drawable/search" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:icon="@drawable/profile" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabs8"
+        android:background="?attr/backgroundColorApp"
+
+        android:id="@+id/vp6">
+    </androidx.viewpager.widget.ViewPager>
+
+
+
+
+</LinearLayout>

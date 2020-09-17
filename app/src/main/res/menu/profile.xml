@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/cam_files"
+            android:icon="@drawable/ic_baseline_menu_24"
+            android:title="My Files" />
+
+        <item
+            android:id="@+id/cam_shared"
+            android:icon="@drawable/ic_baseline_menu_24"
+            android:title="Shared with me" />
+
+        <item
+            android:id="@+id/cam_recent"
+            android:icon="@drawable/ic_baseline_menu_24"
+            android:title="Recent"/>
+
+        <item
+            android:id="@+id/cam_trash"
+            android:icon="@drawable/ic_baseline_menu_24"
+            android:title="Trash" />
+
+    </group>
+
+    <item android:title="Labels">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/cam_family"
+                    android:icon="@drawable/ic_baseline_menu_24"
+                    android:title="Family" />
+
+                <item
+                    android:id="@+id/cam_friends"
+                    android:icon="@drawable/ic_baseline_menu_24"
+                    android:title="Friends" />
+
+                <item
+                    android:id="@+id/cam_work"
+                    android:icon="@drawable/ic_baseline_menu_24"
+                    android:title="Work" />
+            </group>
+        </menu>
+    </item>
+</menu>

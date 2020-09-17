@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/backgroundColorApp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:background="?attr/backgroundColorApp"
+        android:layout_height="match_parent"
+         android:id="@+id/vp61"/>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs81"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+         app:tabBackground="@drawable/tab_selector_new"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/backgroundColorApp"
+        app:tabIconTint="?attr/textcolour"
+        app:tabIndicatorColor="@android:color/transparent"
+        app:tabInlineLabel="true"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextAppearance="@style/CustomTabFont">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:icon="@drawable/profile1" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/buy" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/payment" />
+
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+</RelativeLayout>

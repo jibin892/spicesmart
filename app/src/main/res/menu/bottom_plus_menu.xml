@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/plus_home"
+        android:icon="@drawable/ic_baseline_mic_24"
+        android:title=" bottom_basic_home" />
+
+    <item
+        android:id="@+id/plus_discover"
+        android:icon="@drawable/ic_baseline_mic_24"
+        android:title="Discover" />
+
+    <item
+        android:id="@+id/plus_communities"
+        android:icon="@drawable/ic_baseline_mic_24"
+        android:title="Groups" />
+    <item
+        android:id="@+id/plus_profile"
+        android:icon="@drawable/ic_baseline_mic_24"
+        android:title="Profile" />
+    <item
+        android:id="@+id/plus_notifications"
+        android:icon="@drawable/ic_baseline_mic_24"
+        android:title="Notification" />
+
+
+</menu>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColorApp"
+    tools:context=".Phone.Phone_Number">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/login_image"
+        android:layout_width="match_parent"
+        android:layout_height="287dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="phone.json"
+        app:lottie_loop="true" />
+
+
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Verify Your Number"
+        android:textColor="?attr/textcolour"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_image" />
+
+    <TextView
+        android:id="@+id/login_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Please enter your Country Code \n and Phone number for verification"
+        android:textAlignment="center"
+        android:textColor="?attr/textcolour"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_title" />
+
+    <EditText
+        android:id="@+id/country_code_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:focusable="false"
+        android:background="@drawable/textview"
+        android:fontFamily="@font/open_sans_semibold"
+        android:inputType="number"
+        android:padding="16dp"
+        android:text="+91"
+        android:textColor="?attr/textcolour"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_desc" />
+
+
+
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+             android:ems="10"
+            android:background="@drawable/textview"
+            android:fontFamily="@font/open_sans_semibold"
+            android:hint="Your Phone Number"
+            android:inputType="phone"
+            android:textAlignment="center"
+            android:padding="16dp"
+            android:textColor="?attr/textcolour"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/country_code_text"
+            app:layout_constraintTop_toBottomOf="@+id/login_desc" />
+
+    <Button
+        android:id="@+id/smsVerificationButton"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:onClick="onButtonClicked"
+        android:padding="@dimen/_50sdp"
+        android:text="Generate OTP"
+        android:textAllCaps="false"
+        android:background="@drawable/button"
+        android:textColor="?attr/textcolour"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+
+    <TextView
+        android:id="@+id/tvac_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="@string/app_name"
+        android:textColor="?attr/toolbarTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/login_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/generate_btn"
+        app:layout_constraintEnd_toEndOf="@+id/generate_btn"
+        app:layout_constraintTop_toTopOf="@+id/generate_btn"
+        tools:ignore="UnknownId" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/login_form_feedback"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:fontFamily="@font/open_sans_semibold"-->
+<!--        android:text="Working . . ."-->
+<!--        android:textColor="@android:color/holo_red_light"-->
+<!--        android:visibility="invisible"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/smsVerificationButton" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
