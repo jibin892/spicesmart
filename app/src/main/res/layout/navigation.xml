@@ -120,10 +120,12 @@
                 android:layout_height="@dimen/spacing_middle" />
 
             <LinearLayout
+                android:id="@+id/settings1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/spacing_xmlarge"
                 android:background="?attr/backgroundColorApp"
                 android:clickable="true"
+                android:onClick="onClick"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/spacing_mlarge"

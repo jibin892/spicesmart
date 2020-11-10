@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColorApp"
+
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/trans_tool2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+
+        android:background="?attr/backgroundColorApp"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_scrollFlags="scroll|enterAlways">
+
+        <ImageView
+            android:id="@+id/closelogin"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="?attr/icons"
+            android:src="@drawable/close"
+            app:tint="?attr/icons" />
+
+<!--        <de.hdodenhof.circleimageview.CircleImageView-->
+<!--            android:id="@+id/profileimage"-->
+<!--            android:layout_width="34dp"-->
+<!--            android:layout_height="34dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:src="@drawable/user" />-->
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:orientation="vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="splash.json"
+                app:lottie_loop="true" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical"
+                 app:cardCornerRadius="@dimen/_27sdp"
+                app:cardBackgroundColor="?attr/cardview"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                app:behavior_hideable="true"
+                app:behavior_peekHeight="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="Login With"
+
+                            android:textColor="?attr/textcolour"
+                            android:textSize="29sp" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="horizontal">
+
+
+                                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                    android:id="@+id/phonenuberbutton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/fab_margin"
+                                    android:layout_marginTop="@dimen/fab_margin"
+                                    android:layout_marginEnd="@dimen/fab_margin"
+                                    android:layout_marginBottom="@dimen/fab_margin"
+                                    android:background="@drawable/circular_blue_solid"
+                                    android:backgroundTint="#fff"
+                                    android:src="@drawable/ic_baseline_local_phone_24"
+                                    android:tint="#2948ff"
+                                    app:backgroundTint="@color/materialBlue"
+                                    app:borderWidth="0dp"
+                                    app:fabSize="normal"
+                                    app:layout_anchorGravity="end|bottom" />
+
+                                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                    android:id="@+id/googlebutton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/fab_margin"
+                                    android:layout_marginTop="@dimen/fab_margin"
+                                    android:layout_marginEnd="@dimen/fab_margin"
+                                    android:layout_marginBottom="@dimen/fab_margin"
+                                    android:background="@drawable/circular_blue_solid"
+                                    android:backgroundTint="#F23535"
+                                    android:src="@drawable/google"
+                                    android:tint="#fff"
+                                    app:backgroundTint="@color/materialBlue"
+                                    app:borderWidth="0dp"
+                                    app:fabSize="normal"
+                                    app:layout_anchorGravity="end|bottom" />
+
+                                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                    android:id="@+id/facebookbutton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/fab_margin"
+                                    android:layout_marginTop="@dimen/fab_margin"
+                                    android:layout_marginEnd="@dimen/fab_margin"
+                                    android:layout_marginBottom="@dimen/fab_margin"
+                                    android:background="@drawable/circular_blue_solid"
+                                    android:backgroundTint="#0052D4"
+                                    android:src="@drawable/facebook"
+                                    android:tint="#fff"
+                                    app:backgroundTint="@color/materialBlue"
+                                    app:borderWidth="0dp"
+                                    app:fabSize="normal"
+                                    app:layout_anchorGravity="end|bottom" />
+
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp" />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/loginpage" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

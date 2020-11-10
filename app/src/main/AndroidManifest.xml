@@ -15,15 +15,17 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name=".Phone.ApplicationClass"
+        android:name=".Notification.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/DayMode">
-        <activity android:name=".View_All.Viewall"></activity>
-         <activity android:name=".Hostel_details.View_hostel" />
+        <activity android:name=".Music.Muzic_home"></activity>
+        <activity android:name=".Location.Nearest_Finder" />
+        <activity android:name=".View_All.Viewall" />
+        <activity android:name=".Hostel_details.View_hostel" />
         <activity android:name=".Home.Home" />
         <activity android:name=".Location.Location_home" />
         <activity android:name=".Facebook.Facebook_login" />

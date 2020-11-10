@@ -34,7 +34,7 @@
          <androidx.cardview.widget.CardView
              android:id="@+id/locationfindinglayout"
              android:layout_width="match_parent"
-             android:layout_height="169dp"
+             android:layout_height="wrap_content"
              app:cardBackgroundColor="?attr/cardview"
              app:cardCornerRadius="6dp"
              app:cardElevation="3dp"
@@ -44,10 +44,8 @@
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:layout_gravity="center"
-                 android:layout_marginBottom="2dp"
-                  android:gravity="center_vertical"
-                 android:orientation="horizontal"
-                 android:padding="12dp">
+                  android:orientation="horizontal"
+                 >
 
 
                  <LinearLayout
@@ -59,22 +57,45 @@
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
                          android:layout_marginStart="14dp"
-                         android:layout_marginTop="24dp"
-                         android:layout_marginEnd="24dp"
+                          android:layout_marginEnd="24dp"
                          android:fontFamily="@font/poppins_bold"
                          android:text="Current Location"
                          android:textColor="?attr/textcolour"
                          android:textSize="20sp"
                          android:textStyle="bold" />
-
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:orientation="horizontal">
                      <ImageView
                          android:layout_width="24dp"
                          android:layout_height="24dp"
                          android:layout_marginStart="14dp"
-                         android:layout_marginTop="@dimen/padding_10"
+                         android:layout_gravity="center"
+
                          android:src="@drawable/location"
                          app:tint="@color/green_A700" />
 
+                         <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="right"
+                             android:gravity="right"
+
+                             android:orientation="horizontal">
+                         <ImageView
+                             android:id="@+id/nearestfinder"
+                             android:layout_width="59dp"
+                             android:layout_height="58dp"
+                             android:layout_margin="4dp"
+                             android:layout_gravity="center"
+
+                             android:background="@drawable/background_circle"
+                             android:padding="12dp"
+                             android:src="@drawable/location"
+                             app:tint="?attr/iconcolour" />
+                         </LinearLayout>
+                     </LinearLayout>
                      <LinearLayout
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
@@ -444,7 +465,7 @@
                 android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/popularviewall"
+        android:id="@+id/nearestviewall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -514,12 +535,12 @@
 
                  <LinearLayout
                      android:id="@+id/locationon"
-                     android:layout_width="wrap_content"
+                     android:layout_width="match_parent"
                      android:layout_height="wrap_content"
-                     android:layout_alignParentEnd="true"
                      android:layout_alignParentBottom="true"
-                     android:layout_marginEnd="58dp"
+
                      android:layout_marginBottom="43dp"
+                     android:gravity="center"
                      android:orientation="vertical"
                      android:padding="5dp">
 
@@ -586,7 +607,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/nearestviewall"
+                        android:id="@+id/popularviewall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
@@ -652,66 +673,7 @@
              </LinearLayout>
 
 
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:layout_gravity="center"
-                 android:layout_marginTop="12dp"
-                 android:layout_marginBottom="12dp"
-                 android:gravity="center_vertical"
-                 android:orientation="horizontal"
-                 android:padding="12dp"
-                 android:weightSum="3">
-
-                 <LinearLayout
-                      android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                     android:layout_gravity="center"
-                     android:layout_weight="1"
-                      android:orientation="horizontal"
-                     android:padding="8dp">
-
-                     <com.airbnb.lottie.LottieAnimationView
-                         android:layout_width="122dp"
-                         android:layout_height="101dp"
-
-                         app:lottie_autoPlay="true"
-                         app:lottie_fileName="find.json"
-                         app:lottie_loop="true" />
-
-
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_gravity="center"
-                         android:layout_marginStart="4dp"
-                         android:layout_marginTop="8dp"
-                         android:layout_marginEnd="4dp"
-                         android:layout_marginBottom="4dp"
-                         android:fontFamily="@font/poppins_semibold"
-                         android:text="Find Budget Free Hostel"
-                         android:textColor="?attr/textcolour"
-                         android:textSize="14sp" />
-
-
-                     <ImageView
-                         android:layout_width="55dp"
-                         android:layout_height="55dp"
-                         android:layout_gravity="center"
-                         android:src="@drawable/dobel_arrows"
-                         app:tint="?attr/textcolour" />
-
-                 </LinearLayout>
-
-
-             </LinearLayout>
-
-
-
-
-
-
-        </LinearLayout>
+         </LinearLayout>
 
     </LinearLayout>
     </androidx.core.widget.NestedScrollView>

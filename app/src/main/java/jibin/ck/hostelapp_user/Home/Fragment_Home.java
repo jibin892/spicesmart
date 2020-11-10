@@ -2,6 +2,7 @@ package jibin.ck.hostelapp_user.Home;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,7 +25,9 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
+import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -55,6 +58,7 @@ import java.util.Locale;
 
 import jibin.ck.hostelapp_user.Adapter.Nearest_Adapter;
 import jibin.ck.hostelapp_user.Adapter.Popular_Adapter;
+import jibin.ck.hostelapp_user.Location.Nearest_Finder;
 import jibin.ck.hostelapp_user.R;
 import jibin.ck.hostelapp_user.View_All.Viewall;
 import jibin.ck.hostelapp_user.Viewholder.Popular_viewholder;
@@ -81,6 +85,7 @@ CardView locationfindinglayout;
     ShimmerFrameLayout popular_shimer,nearest_shimer;
     Location location;
     Button locationonbtn,rangebutton;
+    ImageView nearestfinder;
     String address, city, state, country, postalCode, knownName;
     public Fragment_Home() {
         // Required empty public constructor
@@ -93,6 +98,8 @@ CardView locationfindinglayout;
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home,container, false);
         mRecyclerView =  view.findViewById(R.id.popular);
+        LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(getContext(), R.anim.layout_animation_fall_down);
+        mRecyclerView.setLayoutAnimation(controller);
         locationon=view.findViewById(R.id.locationon);
         locationonbtn=view.findViewById(R.id.locationonbtn);
         rangeammount=view.findViewById(R.id.rangeammount);
@@ -104,13 +111,22 @@ CardView locationfindinglayout;
         lowbudget=view.findViewById(R.id.lowbudget);
         mediumbudget=view.findViewById(R.id.mediumbudget);
         premium=view.findViewById(R.id.premium);
+        nearestfinder=view.findViewById(R.id.nearestfinder);
 
-
+        nearestfinder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Nearest_Finder.class);
+                startActivity(i);
+            }
+        });
         boyshostel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Viewall.class);
                 i.putExtra("key","boyshostel");
+                i.putExtra("head","Boys Hostel");
+
                 i.putExtra("child","mdel");
 
                 startActivity(i);
@@ -121,6 +137,8 @@ CardView locationfindinglayout;
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Viewall.class);
                 i.putExtra("key","gerilshostel");
+                i.putExtra("head","Grils Hostel");
+
                 i.putExtra("child","mdel");
 
                 startActivity(i);
@@ -131,6 +149,8 @@ CardView locationfindinglayout;
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Viewall.class);
                 i.putExtra("key","homestay");
+                i.putExtra("head","Home Stay");
+
                 i.putExtra("child","mdel");
 
                 startActivity(i);
@@ -141,6 +161,8 @@ CardView locationfindinglayout;
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Viewall.class);
                 i.putExtra("key","lowbudget");
+                i.putExtra("head","Low Budget");
+
                 i.putExtra("child","budget");
 
                 startActivity(i);
@@ -151,7 +173,9 @@ CardView locationfindinglayout;
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Viewall.class);
-                i.putExtra("key","lowbudget");
+                i.putExtra("key","mediumbudget");
+                i.putExtra("head","Medium Budget");
+
                 i.putExtra("child","budget");
 
                 startActivity(i);
@@ -162,6 +186,8 @@ CardView locationfindinglayout;
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Viewall.class);
                 i.putExtra("key","premium");
+                i.putExtra("head","Premium");
+
                 i.putExtra("child","budget");
 
                 startActivity(i);
@@ -172,6 +198,8 @@ CardView locationfindinglayout;
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Viewall.class);
                 i.putExtra("key",rangeammount.getText().toString());
+                i.putExtra("head","Budget Free");
+
                 i.putExtra("child","ammount");
 
                 startActivity(i);
@@ -295,11 +323,26 @@ CardView locationfindinglayout;
         nearestviewall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), Viewall.class);
-                i.putExtra("key",postalCode);
-                i.putExtra("child",postalCode);
 
-                startActivity(i);
+                final LocationManager manager = (LocationManager)getActivity(). getSystemService( Context.LOCATION_SERVICE );
+
+                if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+                      buildAlertMessageNoGps();
+
+
+                }
+                else{
+
+                    Intent i = new Intent(getActivity(), Viewall.class);
+                    i.putExtra("key",postalCode);
+                    i.putExtra("child",postalCode);
+
+                    startActivity(i);
+
+                }
+
+
+
             }
         });
 
@@ -359,7 +402,8 @@ CardView locationfindinglayout;
 
 
         nearest =  view.findViewById(R.id.nearest);
-
+        LayoutAnimationController controller1 = AnimationUtils.loadLayoutAnimation(getContext(), R.anim.layout_animation_fall_down);
+        nearest.setLayoutAnimation(controller1);
         //set layout as LinearLayout
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -585,6 +629,7 @@ CardView locationfindinglayout;
 
 
 
+    @SuppressLint("SetTextI18n")
     private void handleLatLng(final double latitude, final double longitude) {
         Log.v("TAG", "(" + latitude + "," + longitude + ")");
         Geocoder geocoder;
@@ -597,6 +642,7 @@ CardView locationfindinglayout;
             e.printStackTrace();
         }
 
+        assert addresses != null;
         address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
         city = addresses.get(0).getLocality();
         state = addresses.get(0).getAdminArea();

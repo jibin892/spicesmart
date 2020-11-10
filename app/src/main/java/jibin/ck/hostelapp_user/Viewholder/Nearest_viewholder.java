@@ -70,6 +70,10 @@ mystatusimage.setOnClickListener(new View.OnClickListener() {
 
 
         Intent a=new Intent(ctx, View_hostel.class);
+
+        a.putExtra("key","boyshostel");
+        a.putExtra("head","Boys Hostel");
+        a.putExtra("child","mdel");
         ctx.startActivity(a);
     }
 });

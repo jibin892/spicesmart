@@ -14,8 +14,7 @@
         android:layout_gravity="center"
         android:background="?attr/backgroundColorApp"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
-        app:layout_scrollFlags="scroll|enterAlways"
-      >
+        app:layout_scrollFlags="scroll|enterAlways">
 
         <ImageView
             android:id="@+id/navimage"
@@ -26,7 +25,6 @@
             android:backgroundTint="?attr/icons"
             android:src="@drawable/menu"
             app:tint="?attr/icons" />
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profileimage"
             android:layout_width="34dp"
@@ -34,6 +32,14 @@
             android:layout_gravity="end"
             android:layout_marginEnd="16dp"
             android:src="@drawable/user" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/music"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/music" />
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -61,21 +67,26 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             android:icon="@drawable/search" />
+            android:icon="@drawable/search" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             android:icon="@drawable/profile" />
+            android:icon="@drawable/profile" />
 
-
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/menu" />
     </com.google.android.material.tabs.TabLayout>
+
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabs8"
+
         android:background="?attr/backgroundColorApp"
 
         android:id="@+id/vp6">

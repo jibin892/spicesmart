@@ -1,11 +1,15 @@
 package jibin.ck.hostelapp_user;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
+
+import java.util.Objects;
 
 import jibin.ck.hostelapp_user.Home.Home;
 import jibin.ck.hostelapp_user.Login.Login_page;
@@ -27,6 +31,7 @@ public class Splash extends AppCompatActivity {
             setTheme(R.style.DayMode);
         }
         setContentView(R.layout.activity_splash);
+        EnableRuntimePermission();
         new Handler().postDelayed(new Runnable() {
 
 
@@ -41,5 +46,19 @@ public class Splash extends AppCompatActivity {
 
 
     }
+    public void EnableRuntimePermission() {
 
+        if (ActivityCompat.shouldShowRequestPermissionRationale(Objects.requireNonNull(this),
+                Manifest.permission.READ_PHONE_NUMBERS)) {
+
+// Toast.makeText(Cpature_image.this,"CAMERA permission allows us to Access CAMERA app", Toast.LENGTH_LONG).show();
+
+        } else {
+
+            ActivityCompat.requestPermissions(Splash.this, new String[]{
+                    Manifest.permission.FOREGROUND_SERVICE,Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION}, 12);
+
+
+        }
+    }
 }

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -22,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 import jibin.ck.hostelapp_user.Adapter.Popular_Adapter;
 import jibin.ck.hostelapp_user.R;
 import jibin.ck.hostelapp_user.Settings.SaveTheamSatate;
@@ -31,6 +34,7 @@ public class Viewall extends AppCompatActivity {
     SaveTheamSatate saveTheamSatate;
     private SwipeRefreshLayout swipeRefreshLayout;
 Intent key;
+TextView head;
     RecyclerView mRecyclerView;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mRef;
@@ -54,6 +58,8 @@ key=getIntent();
         GridLayoutManager mLayoutManager1 = new GridLayoutManager(getApplicationContext(),2);
         mRecyclerView =   findViewById(R.id.viewall);
         viealshimmer =  findViewById(R.id.popular_shimer1);
+        head =  findViewById(R.id.head);
+        head.setText(key.getStringExtra("head"));
         viealshimmer.startShimmer();
 
         //set layout as LinearLayout
@@ -62,14 +68,14 @@ key=getIntent();
         //send Query to FirebaseDatabase
         mFirebaseDatabase = FirebaseDatabase.getInstance();
 
-        mRef =  FirebaseDatabase.getInstance().getReference().child("Popular");
+        mRef =  FirebaseDatabase.getInstance().getReference().child("Populars");
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-        Query firebaseSearchQuery = mRef.orderByChild(key.getStringExtra("child")).equalTo(key.getStringExtra("key"));
+        Query firebaseSearchQuery = mRef.orderByChild(Objects.requireNonNull(key.getStringExtra("child"))).equalTo(key.getStringExtra("key"));
         FirebaseRecyclerAdapter<Popular_Adapter, Nearest_viewholder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Popular_Adapter, Nearest_viewholder>(
                         Popular_Adapter.class,
